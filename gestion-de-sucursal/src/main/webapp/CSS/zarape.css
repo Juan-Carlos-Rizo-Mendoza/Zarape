@@ -1,19 +1,20 @@
 html, body {
     height: 100%;
     margin: 0;
-    background-color: #fffacd; /* Fondo crema ligeramente amarillento */
+    font-family: 'Arial ';
+    background-color:  #FEF3E2; /* Fondo crema ligeramente amarillento */
 }
 
 .navbar {
-    background-color: #f69363 !important;
+    background-color:  #FFA07A;
 }
 
 .nav-link {
-    color: #fff !important;
+    color:  #FEF3E2 !important;
 }
 
-.navbar-brand {
-    color: #fff !important;
+.navbar-brand button a {
+    color:  #FEF3E2 !important;
     font-family: 'Arial Black', sans-serif;
     font-weight: bold;
 }
@@ -24,31 +25,31 @@ html, body {
 }
 
 .card-title {
-    color: #fff;
+    color: #FEF3E2;
 }
 
 .form-control {
-    background-color: #fff !important;
+    background-color: #FEF3E2 !important;
 }
 
 .btn-primary {
-    background-color: #e55934;
+    background-color:  #FFA07A;
     border: none;
 }
 
 .footer {
-    background-color: #f69363;
+    background-color:  #FFA07A;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
 .footer .text-muted {
-    color: #fff !important;
+    color:  #FEF3E2 !important;
 }
 
 .footer a {
-    color: #fff !important;
+    color: #FEF3E2 !important;
 }
 
 .social-icons i {
@@ -56,7 +57,7 @@ html, body {
 }
 
 .login-bar, .admin-bar {
-    background-color: #ed7d31;
+    background-color: #FA812F;
     height: 50px;
     display: flex;
     align-items: center;
@@ -65,18 +66,45 @@ html, body {
 
 /* Custom button colors */
 .btn-edit {
-    background-color: #f69363 !important; /* Azul */
-    color: #fff !important;
     border: none;
 }
 
 .btn-delete {
-    background-color: #e55934 !important; /* Amarillo */
-    color: #fff !important;
     border: none;
 }
 
 /* Table border */
 .table-bordered {
-    border: 2px solid #f69363;
+    border: 2px solid  #FFA07A;
 }
+
+/* Estilos para la barra de navegación */
+.color_naranja {
+    background-color: #FFA07A;
+    color: #FEF3E2;
+}
+
+.color_amarillo {
+    background-color: #FA812F;
+    color: #FEF3E2;
+}
+.color_blanco{
+    color: #FEF3E2;
+}
+
+.color_rojo{
+    background-color: #FA4032;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+#map {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.inactive {
+    opacity: 0.5;
+}
+
