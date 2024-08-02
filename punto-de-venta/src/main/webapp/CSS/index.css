@@ -1,13 +1,39 @@
-/* Reutilizable color de fondo */
-.background-color {
+/* Colores reutilizables */
+.background-color, .menu-item, .color_naranja, .footer-info {
     background-color: #FFA07A;
 }
 
-/* Estilos para el banner */
-.banner {
+.color_blanco, .footer-info, .menu, .color_naranja, .color_amarillo {
+    color: #FEF3E2;
+}
+
+.color_rojo {
+    background-color: #FA4032;
+}
+
+.color_amarillo {
+    background-color: #FA812F;
+}
+
+/* Estilos generales */
+body, li, .texto, a {
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-size: 19px;
+}
+
+p {
+    font-family: 'Arial', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, .subtitulo, .logo {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Estilos de componentes */
+.banner, .background-blanco {
+    background-color: #8b7450;
     text-align: center;
     padding: 4em 0;
-    background-color: #FEF3E2;
 }
 
 .banner h1 {
@@ -18,124 +44,73 @@
     margin: 1em;
 }
 
-/* Estilos para la sección de pie de página */
 .footer-info {
-    background-color: #FFA07A;
-    color: #FEF3E2;
     padding: 2em 0;
 }
 
-.footer-info div {
+.footer-info div, .menu-item, .social-media {
     margin: 1em 0;
 }
 
-/* Estilo para los elementos de redes sociales */
 .social-media {
     margin: 2em 0;
 }
 
-/* Estilo para los elementos del menú */
+/* Menú */
 .menu-item {
-    background-color: #FFA07A;
     padding: 1em;
-    margin: 1em 0;
     border-radius: 10px;
     text-align: center;
 }
 
-.menu {
-    color: #FEF3E2;
-}
-
-/* Estilos para el logo en la barra de navegación */
-.logo {
-    justify-content: end;
+/* Logo */
+.logo, .img {
     display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 .img_logo {
     border-radius: 50px;
     height: 50px;
     width: 50px;
+    margin-right: 20px;
 }
 
-/* Estilos para la barra de navegación */
-.color_naranja {
+/* Navbar */
+.navbar, .color_naranja {
     background-color: #FFA07A;
     color: #FEF3E2;
 }
 
-.color_amarillo {
-    background-color: #FA812F;
-    color: #FEF3E2;
-}
-.color_blanco{
-    color: #FEF3E2;
-}
-
-.color_rojo{
-    background-color: #FA4032;
-}
-
-.navbar-brand.logo .zarape {
-    color: black; /* Color del texto normal */
-    transition: color 0.3s; /* Suaviza la transición del color */
-}
-
-.navbar-brand.logo:hover .zarape {
-    color: white; /* Color del texto cuando se pasa el cursor */
-}
-
-/* Estilos para el texto del logo */
-.zarape {
-    margin: 5px;
-    padding: 5px;
-}
-.img{
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
+/* Otros estilos */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    height: 700px;
-
-}
-
-body {
-    font-size: 25px;
-    background-color: #FEF3E2;
-}
-
-/* Estilo para el logo */
-.zarape {
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-weight: bold;
-}
-
-/* Estilo para los subtítulos */
-h1 h2 h3 h4 h5 .subtitulo{
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-}
-
-/* Estilo para el texto simple */
-body p, a, li .texto{
-    font-family: 'Arial', sans-serif;
-}
-
-
-.tamaño_a{
     padding: 20px;
-}
-
-
-.bordes{
     border-radius: 10px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.767);
 }
 
-.tamaño_div{
-    padding: 20px;
-    width: 500px;
+.carousel-container {
+    position: relative;
+    height: 100vh;
 }
 
-.img_fluit{
-    margin: 20px;
+.carousel-inner img {
+    height: 50vh;
+    width: 70%;
+    object-fit: cover;
+}
+
+.content-section {
+    margin-top: -300px; /* Ajuste de margen superior para juntar las secciones */
+}
+
+.content-button {
+    font-size: 20px;
+    font-weight: bold;
 }

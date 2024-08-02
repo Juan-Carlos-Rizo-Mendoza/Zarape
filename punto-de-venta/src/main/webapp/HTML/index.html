@@ -8,10 +8,11 @@
     <link href="../CSS/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark color_naranja">
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark color_naranja navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="" alt="Logo" width="30" height="30" class="d-inline-block align-text-top img_logo">
+                <img id="logo" src="" alt="Logo" width="30" height="30" class="d-inline-block align-text-top img_logo ">
                 <h3 class="ms-2 mb-0">El Zarape</h3>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,63 +20,65 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html"><h5>Inicio</h5></a></li>
-                    <li class="nav-item"><a class="nav-link" href="menu.html"><h5>Menú</h5></a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre_nosotros.html"><h5>Sobre nosotros</h5></a></li>
-                    <li class="nav-item"><a class="nav-link" href="sucursal.html"><h5>Sucursales</h5></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menú</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre_nosotros.html">Sobre nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sucursal.html">Sucursales</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="col-12 align-items-center justify-content-center text-center color_amarillo">Inicio</div>
-    <div id="carouselExampleAutoplaying" class="carousel slide rights" data-bs-ride="carousel">
-        <div class="carousel-inner py-3">
-            <div class="carousel-item active opacity-50 z-0">
-                <img src="" class="d-block img" width="600px" alt="Imagen 1">
-            </div>
-            <div class="carousel-item opacity-50 z-0">
-                <img src="" class="d-block img" alt="Imagen 2">
-            </div>
-            <div class="carousel-item opacity-50 z-0">
-                <img src="" class="d-block img" alt="Imagen 3">
-            </div>
-            <div class="d-flex justify-content-center" style="height: 100vh;">
-                <div class="text-center text-dark position-relative color_naranja tamaño_div bordes" style="width: 300px; height: 200px;">
-                    <h3 class="center-content align-items-center my-3 color_blanco">Hacer pedido aquí</h3>
-                    <a href="menu.html" class="btn color_amarillo cta tamaño_a"><h4>Nuestro menú</h4></a>
+
+    <!-- Carousel -->
+    <div class="carousel-container">
+        <div id="carouselExampleAutoplaying" class="carousel slide rights" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active z-3">
+                    <img id="carousel1" src="" class="d-block w-100" alt="Imagen 1">
+                </div>
+                <div class="carousel-item z-3">
+                    <img id="carousel2" src="" class="d-block w-100" alt="Imagen 2">
+                </div>
+                <div class="carousel-item z-3">
+                    <img id="carousel3" src="" class="d-block w-100" alt="Imagen 3">
                 </div>
             </div>
         </div>
+        <div class="overlay text-center color_rojo">
+            <h3 class="color_blanco">Hacer pedido aquí</h3>
+            <a href="menu.html" class="btn color_amarillo tamaño_a">Nuestro menú</a>
+        </div>
     </div>
-    <div class="container">
+
+    <!-- Section 1 -->
+    <div class="container content-section">
         <div class="row">
             <div class="col-md-6">
-                <img src="" height="200" class="img-fluid section-image">
+                <img id="sectionImage1" src="" class="img-fluid section-image" alt="Imagen de la sección 1">
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
                 <h1 class="text-center">Tu lugar para comer delicioso</h1>
-                <p class="text-justify">
-                    Describe el restaurante a los lectores de tu sitio web en unas pocas frases. Haz que se sientan bienvenidos e invítalos a visitarlo.
-                </p>
+                <p class="text-justify">Describe el restaurante a los lectores de tu sitio web en unas pocas frases. Haz que se sientan bienvenidos e invítalos a visitarlo.</p>
             </div>
         </div>
     </div>
+
+    <!-- Section 2 -->
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex flex-column justify-content-center">
                 <h1 class="text-center">Tu lugar para comer delicioso</h1>
-                <p class="text-justify">
-                    Describe el restaurante a los lectores de tu sitio web en unas pocas frases. Haz que se sientan bienvenidos e invítalos a visitarlo.
-                </p>
+                <p class="text-justify">Describe el restaurante a los lectores de tu sitio web en unas pocas frases. Haz que se sientan bienvenidos e invítalos a visitarlo.</p>
             </div>
             <div class="col-md-6">
-                <img src="" height="200" class="img-fluid section-image">
+                <img id="sectionImage2" src="" class="img-fluid section-image" alt="Imagen de la sección 2">
             </div>
         </div>
     </div>
-    <br>
+
+    <!-- Footer -->
     <section class="footer-info text-center">
-        <div class="container align-items-center center-content text-center flex-column">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-3">
                     <h3>Dirección</h3>
@@ -92,6 +95,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="../JS/index.js"></script>
