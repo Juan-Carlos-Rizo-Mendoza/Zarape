@@ -5,109 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Zarape - Menú</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="css/index.css" rel="stylesheet" type="text/css">
-    <style>
-        .selected {
-            background-color: #007bff;
-            color: #fff;
-        }
-        .order-summary, .payment-form {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-            overflow: auto;
-        }
-        .order-summary-content, .payment-form-content {
-            background: #fff;
-            margin: 5% auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 8px;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/menu.css">
 </head>
 
-<body>
+<body class="color_blanco">
     <nav class="navbar navbar-expand-lg navbar-dark color_naranja">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="img/Imagen de WhatsApp 2024-06-27 a las 11.42.54_d3a74c5d.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top img_logo">
-                <h3 class="ms-2 mb-0">El Zarape</h3>
+            <a class="navbar-brand" href="#">
+                <img id="logoImage" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                El Zarape
             </a>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><h5>Inicio</h5></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="menu.html"><h5>Menú</h5></a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre_nosotros.html"><h5>Sobre nosotros</h5></a></li>
-                    <li class="nav-item"><a class="nav-link" href="sucursal.html"><h5>Sucursales</h5></a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html">Menú</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre_nosotros.html">Sobre nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sucursal.html">Sucursales</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-
-    <div class="col-12 text-center color_amarillo py-4">
+    <div class="container text-center my-4">
         <h2>Menú</h2>
-    </div>
-
-    <section class="container my-5">
-        <h2 class="text-warning text-center mb-4">Menú de desayuno</h2>
-        <div class="row d-flex justify-content-center">
-            <!-- Producto 1 -->
-            <div class="col-md-3 mx-auto mb-4">
-                <div class="card">
-                    <img src="img/Pan-de-yema-with-chocolate-traditional-breakfast-from-Oaxaca-Mexico.jpg" class="card-img-top" alt="Pan y salsas de ...">
-                    <div class="card-body">
-                        <h5 class="card-title">Pan y salsas de ...</h5>
-                        <p class="card-text">Pan de masa madre con hummus, romero y queso feta</p>
-                        <p class="card-text"><strong>$450</strong></p>
-                        <button class="btn btn-danger color_amarillo btn-outline-danger" onclick="toggleSelection(this, 'Pan y salsas de ...', 450)">Seleccionar</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 2 -->
-            <div class="col-md-3 mx-auto mb-4">
-                <div class="card">
-                    <img src="img/Mexican-style-red-enchiladas-.jpg" class="card-img-top" alt="Ensalada de hojas verdes">
-                    <div class="card-body">
-                        <h5 class="card-title">Ensalada de hojas verdes</h5>
-                        <p class="card-text">Ensalada fresca con verduras de temporada.</p>
-                        <p class="card-text"><strong>$350</strong></p>
-                        <button class="btn btn-danger color_amarillo btn-outline-danger" onclick="toggleSelection(this, 'Ensalada de hojas verdes', 350)">Seleccionar</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 3 -->
-            <div class="col-md-3 mx-auto mb-4">
-                <div class="card">
-                    <img src="img/Huevos-a-la-mexicana-traditional-mexican-scrambled-egg-breakfast.jpg" class="card-img-top" alt="Sashimi de atún">
-                    <div class="card-body">
-                        <h5 class="card-title">Sashimi de atún</h5>
-                        <p class="card-text">Atún fresco a la plancha, hierbas frescas y una pizca de ají picante</p>
-                        <p class="card-text"><strong>$450</strong></p>
-                        <button class="btn btn-danger color_amarillo btn-outline-danger" onclick="toggleSelection(this, 'Sashimi de atún', 450)">Seleccionar</button>
-                    </div>
-                </div>
-            </div>
+        <div id="menu"></div>
+        <div class="mt-4 color_amarillo div_content">
+            <h4>Productos seleccionados: <span id="selectedCount">0</span></h4>
+            <h4>Total: $<span id="totalPrice">0</span></h4>
+            <button class="btn btn-primary" onclick="showOrderSummary()">Hacer Pedido</button>
         </div>
-    </section>
-
-    <div class="container text-center mb-4 color_amarillo bordes"><br>
-        <h4>Productos seleccionados: <span id="selectedCount">0</span></h4>
-        <h4>Total: $<span id="totalPrice">0</span></h4>
-        <button class="btn btn-danger color_rojo" onclick="showOrderSummary()">Hacer Pedido</button><br><br>
     </div>
 
+    <div class="overlay" id="overlay"></div>
     <div class="order-summary" id="orderSummary">
         <div class="order-summary-content">
             <h3>Resumen del Pedido</h3>
@@ -117,179 +51,91 @@
             <p><strong>Total:</strong> $<span id="summaryTotal">0</span></p>
             <h4>Detalles del Pedido:</h4>
             <div id="summaryDetails"></div>
-            <button class="btn btn-danger color_rojo mt-3" onclick="showPaymentForm()">Realizar Pago</button>
+            <button class="btn btn-primary mt-3" onclick="showPaymentForm()">Realizar Pago</button>
         </div>
     </div>
 
-<!-- Formulario de Pago -->
-<div class="payment-form" id="paymentForm" style="display: none;">
-    <div class="payment-form-content">
-        <h3>Formulario de Pago</h3>
-        <form id="paymentFormContent" onsubmit="event.preventDefault(); processPayment();">
-            <div class="mb-3">
-                <label for="cardNumber" class="form-label">Número de Tarjeta</label>
-                <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
-            </div>
-            <div class="mb-3">
-                <label for="cardName" class="form-label">Nombre en la Tarjeta</label>
-                <input type="text" class="form-control" id="cardName" placeholder="Nombre Apellido" required>
-            </div>
-            <div class="mb-3">
-                <label for="expiryDate" class="form-label">Fecha de Expiración</label>
-                <input type="text" class="form-control" id="expiryDate" placeholder="MM/AA" required>
-            </div>
-            <div class="mb-3">
-                <label for="cvv" class="form-label">Código de Seguridad</label>
-                <input type="text" class="form-control" id="cvv" placeholder="123" required>
-            </div>
-            <button type="submit" class="btn btn-success" onclick="processPayment()">Pagar</button>
-            <button type="button" class="btn btn-secondary" onclick="closePaymentForm()">Cancelar</button>
-        </form>
-    </div>
-</div>
+    <div class="payment-form" id="paymentForm">
+        <div class="payment-form-content">
+            <h3>Formulario de Pago</h3>
+            <form id="paymentFormContent" onsubmit="event.preventDefault(); processPayment();">
+                <div class="mb-3">
+                    <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cardName" class="form-label">Nombre en la Tarjeta</label>
+                    <input type="text" class="form-control" id="cardName" placeholder="Nombre Apellido" required>
+                </div>
+                <div class="mb-3">
+                    <label for="expiryDate" class="form-label">Fecha de Expiración</label>
+                    <input type="text" class="form-control" id="expiryDate" placeholder="MM/AA" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cvv" class="form-label">Código de Seguridad</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                </div>
+                <button type="submit" class="btn btn-success">Pagar</button>
+                <button type="button" class="btn btn-secondary" onclick="closePaymentForm()">Cancelar</button>
 
-<!-- Modal de Agradecimiento -->
-<div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="thankYouModalLabel">¡Gracias por su compra!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Su compra ha sido realizada exitosamente. ¡Gracias por elegir El Zarape!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="thankYouModalLabel">¡Gracias por su compra!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Su compra ha sido realizada exitosamente. ¡Gracias por elegir El Zarape!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
     
     <footer class="footer-custom color_naranja">
         <div class="container py-4">
-            <div class="row">
-                <div class="col-6 col-md-6 mb-3">
-                    <h5>Secciones</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Inicio</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Características</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Precios</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Sobre nosotros</a></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <form>
-                        <h3>También nos importas</h3>
-                        <p>Escribe aquí los comentarios de tu experiencia en el Zarape.</p>
-                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                            <input type="email" class="form-control" placeholder="Escribe aquí" required>
-                            <button class="btn btn-primary" type="submit">Enviar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-white">
-                <p>&copy; 2024 Zarape, Inc.</p>
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-body-emphasis" href="#">
-                        <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+          <div class="row">
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9dFsF+LzWMAu9lQoC8PmS4dX/sUANbY1Q8z6ktvK25RpuV6Xy4X" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-14i5Zqoc7zpS5l5+ovYODBGDd6C1vN7XgtF50czlpe/AYTOp+2CEUjsFeuFczH0R" crossorigin="anonymous"></script>
-    <script>
-        let selectedItems = [];
-        const IVA_RATE = 0.16;
+                  <div class="col-12 col-md-4 mb-3">
+                      <form>
+                          <h3>Tambien nos importas</h3>
+                          <p>Escibe aqui los comentarios de tu experiencia en el zarape.</p>
+                          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                              <input type="text" class="form-control" placeholder="Escribe aqui" required>
+                              <button class="btn btn-primary" type="submit">Enviar</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-white">
+                  <p>&copy; 2024 Zarape, Inc.</p>
+                  <ul class="list-unstyled d-flex">
+                      <li class="ms-3"><a class="link-body-emphasis" href="#">
+                        <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a>
+                      </li>
+                      <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                      <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </footer>
 
-        function toggleSelection(button, name, price) {
-            const itemIndex = selectedItems.findIndex(item => item.name === name);
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-            if (itemIndex === -1) {
-                // Add item to selection
-                selectedItems.push({ name, price });
-                button.classList.add('selected');
-            } else {
-                // Remove item from selection
-                selectedItems.splice(itemIndex, 1);
-                button.classList.remove('selected');
-            }
-            
-            updateOrderSummary();
-        }
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        function updateOrderSummary() {
-            const subtotal = selectedItems.reduce((total, item) => total + item.price, 0);
-            const iva = subtotal * IVA_RATE;
-            const totalPrice = subtotal + iva;
-
-            document.getElementById('selectedCount').textContent = selectedItems.length;
-            document.getElementById('totalPrice').textContent = subtotal;
-
-            let orderDetailsHTML = '<ul>';
-            selectedItems.forEach(item => {
-                orderDetailsHTML += `<li>${item.name} - $${item.price}</li>`;
-            });
-            orderDetailsHTML += '</ul>';
-
-            document.getElementById('summaryDetails').innerHTML = orderDetailsHTML;
-            document.getElementById('summarySubtotal').textContent = subtotal.toFixed(2);
-            document.getElementById('summaryIVA').textContent = iva.toFixed(2);
-            document.getElementById('summaryTotal').textContent = totalPrice.toFixed(2);
-        }
-
-        function showOrderSummary() {
-            updateOrderSummary();
-            document.getElementById('orderSummary').style.display = 'block';
-        }
-
-        function closeOrderSummary() {
-            document.getElementById('orderSummary').style.display = 'none';
-        }
-
-        function showPaymentForm() {
-            document.getElementById('orderSummary').style.display = 'none';
-            document.getElementById('paymentForm').style.display = 'block';
-        }
-
-        function closePaymentForm() {
-            document.getElementById('paymentForm').style.display = 'none';
-        }
-        function showPaymentForm() {
-    document.getElementById('orderSummary').style.display = 'none';
-    document.getElementById('paymentForm').style.display = 'block';
-}
-
-function closePaymentForm() {
-    document.getElementById('paymentForm').style.display = 'none';
-}
-
-// Función para procesar el pago
-// Función para procesar el pago
-function processPayment() {
-    // Aquí puedes agregar lógica para procesar el pago, si es necesario.
-
-    // Ocultar el formulario de pago
-    document.getElementById('paymentForm').style.display = 'none';
-
-    // Mostrar el modal de agradecimiento
-    var thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
-    thankYouModal.show();
-}
-
-
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-    
+    <script src="../JS/menu.js"></script>
 </body>
+
 </html>
-
-
