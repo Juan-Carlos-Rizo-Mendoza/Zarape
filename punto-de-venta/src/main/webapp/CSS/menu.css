@@ -1,21 +1,21 @@
 /* General Styles */
-body, .color_naranja {
+ .color-naranja {
     background-color: #FFA07A;
     font-size: 20px;
 
 }
 
-.color_amarillo {
+.color-amarillo {
     background-color: #FA812F;
     color: #FEF3E2;
 }
 
-.color_blanco {
+.color-blanco {
     background-color: #FEF3E2;
     color: black;
 }
 
-.color_rojo {
+.color-rojo {
     background-color: #FA4032;
 }
 

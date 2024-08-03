@@ -8,7 +8,7 @@
     <link href="../CSS/sobre-nosotros.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark color_naranja">
+    <nav class="navbar navbar-expand-lg navbar-dark color-naranja">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img id="logo" src="#" alt="Logo" width="30" height="30" class="d-inline-block align-text-top img_logo">
@@ -62,9 +62,9 @@
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="container mt-5 color-amarillo p-4 ">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class=" text-center">
                 <h2 class="mb-4">Nuestro Compromiso</h2>
                 <p>
                     En <strong>El Zarape</strong>, nos esforzamos por ofrecer no solo comida deliciosa, sino también una experiencia completa que incluye un servicio amable, un ambiente cómodo y la última tecnología para facilitar tu visita.
@@ -76,43 +76,42 @@
         </div>
     </div>
 
-    <footer class="footer-custom color_naranja">
+    <footer class="footer-custom color-naranja">
         <div class="container py-4">
           <div class="row">
-            <div class="col-6 col-md-2 mb-3">
-              <h5>Section</h5>
+            <div class="col-6 col-4">
+              <h3>Section</h3><br>
               <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+                <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0"><p>Inicio</p></a></li>
+                <li class="nav-item mb-2"><a href="menu.html" class="nav-link p-0"><p>Menu</p></a></li>
+                <li class="nav-item mb-2"><a href="sobre_nosotros.html" class="nav-link p-0"><p>Sobre Nosotros</p></a></li>
+                <li class="nav-item mb-2"><a href="sucursal.html" class="nav-link p-0"><p>Sucursales</p></a></li>
               </ul>
             </div>
-            <div class="col-12 col-md-4 mb-3">
-                <form>
-                    <h3>Tambien nos importas</h3>
-                    <p>Escribe aquí los comentarios de tu experiencia en El Zarape.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                        <input type="email" class="form-control" placeholder="Escribe aquí" required>
-                        <button class="btn btn-primary" type="submit">Enviar</button>
-                    </div>
-                </form>
-            </div>
+                  <div class="col-6 mb-3">
+                      <form>
+                          <h3>Tambien nos importas</h3>
+                          <p>Escibe aqui los comentarios de tu experiencia en el zarape.</p>
+                          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                              <input type="email" class="form-control" placeholder="Escribe aqui" required>
+                              <button class="btn btn-primary" type="submit">Enviar</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-white">
+                  <p>&copy; 2024 Zarape, Inc.</p>
+                  <ul class="list-unstyled d-flex">
+                      <li class="ms-3"><a class="link-body-emphasis" href="#">
+                        <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a>
+                      </li>
+                      <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                      <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a>
+                      </li>
+                  </ul>
+              </div>
           </div>
-          <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-white">
-              <p>&copy; 2024 Zarape, Inc.</p>
-              <ul class="list-unstyled d-flex">
-                  <li class="ms-3"><a class="link-body-emphasis" href="#">
-                    <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a>
-                  </li>
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a>
-                  </li>
-              </ul>
-          </div>
-        </div>
-    </footer>
+      </footer>
 
     <!-- Incluir el archivo JavaScript -->
     <script src="../JS/sobre-nosotros.js"></script>

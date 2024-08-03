@@ -10,7 +10,7 @@
 </head>
 
 <body class="color_blanco">
-    <nav class="navbar navbar-expand-lg navbar-dark color_naranja">
+    <nav class="navbar navbar-expand-lg navbar-dark color-naranja">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img id="logoImage" alt="Logo" width="30" height="30" class="d-inline-block align-text-top logo">
@@ -34,7 +34,7 @@
     <div class="container text-center my-4">
         <h2>Menú</h2>
         <div id="menu"></div>
-        <div class="mt-4 color_amarillo div_content">
+        <div class="mt-4 color-amarillo div_content">
             <h4>Productos seleccionados: <span id="selectedCount">0</span></h4>
             <h4>Total: $<span id="totalPrice">0</span></h4>
             <button class="btn btn-primary" onclick="showOrderSummary()">Hacer Pedido</button>
@@ -99,16 +99,24 @@
         </div>
     </div>
     
-    <footer class="footer-custom color_naranja">
+    <footer class="footer-custom color-naranja">
         <div class="container py-4">
           <div class="row">
-
-                  <div class="col-12 col-md-4 mb-3">
+            <div class="col-6 col-4">
+              <h3>Section</h3><br>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0"><p>Inicio</p></a></li>
+                <li class="nav-item mb-2"><a href="menu.html" class="nav-link p-0"><p>Menu</p></a></li>
+                <li class="nav-item mb-2"><a href="sobre_nosotros.html" class="nav-link p-0"><p>Sobre Nosotros</p></a></li>
+                <li class="nav-item mb-2"><a href="sucursal.html" class="nav-link p-0"><p>Sucursales</p></a></li>
+              </ul>
+            </div>
+                  <div class="col-6 mb-3">
                       <form>
                           <h3>Tambien nos importas</h3>
                           <p>Escibe aqui los comentarios de tu experiencia en el zarape.</p>
                           <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                              <input type="text" class="form-control" placeholder="Escribe aqui" required>
+                              <input type="email" class="form-control" placeholder="Escribe aqui" required>
                               <button class="btn btn-primary" type="submit">Enviar</button>
                           </div>
                       </form>

@@ -1,44 +1,39 @@
 
-.color_blanco, .footer-info, .menu, .color_naranja, .color_amarillo {
+.color-blanco,  .color-rojo, .color-amarillo {
     color: #FEF3E2;
 }
 
-.color_rojo {
+.color-rojo {
     background-color: #FA4032;
 }
 
-.color_amarillo {
+.color-amarillo {
     background-color: #FA812F;
 }
 
 body, .texto, a {
     font-family: 'Arial Black', Arial, sans-serif;
     font-size: 19px;
-    color: black;
 }
 
 p, li {
     font-family: 'Arial', Arial, sans-serif;
-    color: black;
 }
 
 h1, h2, h3, h4, h5, .subtitulo, .logo {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: black;
 }
 
 /* Logo */
 .logo, .img_logo {
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    border-radius: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
 /* Navbar */
-.navbar, .color_naranja {
+.navbar, .color-naranja {
     background-color: #FFA07A;
-    color: #FEF3E2;
 }
 
 .nav-link{
