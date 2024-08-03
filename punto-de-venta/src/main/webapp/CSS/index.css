@@ -19,26 +19,25 @@
 body, li, .texto, a {
     font-family: 'Arial Black', Arial, sans-serif;
     font-size: 19px;
+    color: black;
 }
 
 p {
     font-family: 'Arial', Arial, sans-serif;
+    color: black;
 }
 
 h1, h2, h3, h4, h5, .subtitulo, .logo {
     font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: black;
 }
 
 /* Estilos de componentes */
 .banner, .background-blanco {
-    background-color: #8b7450;
     text-align: center;
     padding: 4em 0;
 }
 
-.banner h1 {
-    font-size: 2.5em;
-}
 
 .cta {
     margin: 1em;
@@ -83,13 +82,16 @@ h1, h2, h3, h4, h5, .subtitulo, .logo {
     color: #FEF3E2;
 }
 
+.nav-link{
+    color: black;
+}
+
 /* Otros estilos */
 .overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.767);
