@@ -1,0 +1,11 @@
+[
+    {
+        "id_Empleado": "",
+        "nombre": "Juan Carlos",
+        "apellido": "Rizo Mendoza",
+        "email": "rizomendozajuancarlos@gmail.com",
+        "telefono": "123456789",
+        "puesto": "Gerente",
+        "estado": "activo"
+    }
+]
