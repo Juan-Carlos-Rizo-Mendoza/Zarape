@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Usuarios</title>
+    <title>Gestión de Empleados</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/zarape.css"/>
     <style>
@@ -31,45 +31,47 @@
         <span style="color: #fff; font-size: 1.5rem;">Administración</span>
     </div>
 
-    <!-- User Management -->
+    <!-- Employee Management -->
     <div class="container my-5">
-        <h2 class="text-center" style="color: #f69363;">Gestión de Usuarios</h2>
+        <h2 class="text-center" style="color: #f69363;">Gestión de Empleados</h2>
 
         <div class="row">
             <div class="col-md-12">
-                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#addUserModal">Agregar Usuario</button>
-                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#conUserModal">Consultar Usuario</button>
+                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#addEmployeeModal">Agregar Empleado</button>
+                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#conEmployeeModal">Consultar Empleado</button>
                 <table class="table table-bordered" style="border: 2px solid #f69363;">
                     <thead>
                         <tr>
+                            <th>ID Empleado</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>Email</th>
                             <th>Teléfono</th>
+                            <th>Puesto</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="tblUsuarios">
-                        <!-- Filas de usuarios generadas dinámicamente -->
+                    <tbody id="tblEmpleados">
+                        <!-- Filas de empleados generadas dinámicamente -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- Modal para agregar usuario -->
-    <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <!-- Modal para agregar empleado -->
+    <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addUserModalLabel">Agregar Usuario</h5>
+                    <h5 class="modal-title" id="addEmployeeModalLabel">Agregar Empleado</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formAddUser">
+                    <form id="formAddEmployee">
                         <div class="form-group">
                             <label for="addName">Nombre:</label>
                             <input type="text" class="form-control" id="addName" name="name">
@@ -86,25 +88,29 @@
                             <label for="addPhone">Teléfono:</label>
                             <input type="tel" class="form-control" id="addPhone" name="phone">
                         </div>
-                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="agregarUsuario()">Agregar Usuario</button>
+                        <div class="form-group">
+                            <label for="addPosition">Puesto:</label>
+                            <input type="text" class="form-control" id="addPosition" name="position">
+                        </div>
+                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="agregarEmpleado()">Agregar Empleado</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal para editar usuario -->
-    <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="editUserModalLabel" aria-hidden="true">
+    <!-- Modal para editar empleado -->
+    <div class="modal fade" id="editEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editUserModalLabel">Editar Usuario</h5>
+                    <h5 class="modal-title" id="editEmployeeModalLabel">Editar Empleado</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formEditUser">
+                    <form id="formEditEmployee">
                         <div class="form-group">
                             <label for="editName">Nombre:</label>
                             <input type="text" class="form-control" id="editName" name="name">
@@ -121,25 +127,29 @@
                             <label for="editPhone">Teléfono:</label>
                             <input type="tel" class="form-control" id="editPhone" name="phone">
                         </div>
-                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="modificarUsuario()">Actualizar Información</button>
+                        <div class="form-group">
+                            <label for="editPosition">Puesto:</label>
+                            <input type="text" class="form-control" id="editPosition" name="position">
+                        </div>
+                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="modificarEmpleado()">Actualizar Información</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal para consultar usuario -->
-    <div class="modal fade" id="conUserModal" tabindex="-1" role="dialog" aria-labelledby="conUserModalLabel" aria-hidden="true">
+    <!-- Modal para consultar empleado -->
+    <div class="modal fade" id="conEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="conEmployeeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="conUserModalLabel">Consultar Usuario</h5>
+                    <h5 class="modal-title" id="conEmployeeModalLabel">Consultar Empleado</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formConUser">
+                    <form id="formConEmployee">
                         <div class="form-group">
                             <label for="conDato">Dato:</label>
                             <input type="text" class="form-control" id="conDato" name="dato">
@@ -153,7 +163,7 @@
                                 <option value="telefono">Teléfono</option>
                             </select>
                         </div>
-                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="consultarUsuario()">Consultar</button>
+                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="consultarEmpleado()">Consultar</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -161,10 +171,12 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th>ID Empleado</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Email</th>
                                     <th>Teléfono</th>
+                                    <th>Puesto</th>
                                     <th>Estado</th>
                                 </tr>
                             </thead>
@@ -188,6 +200,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../JS/gestionUsuarios.js"></script>
+    <script src="../JS/gestionEmpleados.js"></script>
 </body>
 </html>

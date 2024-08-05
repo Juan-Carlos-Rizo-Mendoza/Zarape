@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Usuarios</title>
+    <title>Gestión de Combos</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/zarape.css"/>
-    <style>
-        .modal-lg {
-            max-width: 90% !important;
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/zarape.css"/>
 </head>
 <body>
     <!-- Navbar -->
@@ -33,25 +28,37 @@
 
     <!-- User Management -->
     <div class="container my-5">
-        <h2 class="text-center" style="color: #f69363;">Gestión de Usuarios</h2>
+        <h2 class="text-center" style="color: #f69363;">Gestión de Combos</h2>
 
         <div class="row">
             <div class="col-md-12">
-                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#addUserModal">Agregar Usuario</button>
-                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#conUserModal">Consultar Usuario</button>
+                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#addUserModal">Agregar Combo</button>
+                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#conUserModal">Consultar Combo</button>
                 <table class="table table-bordered" style="border: 2px solid #f69363;">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Teléfono</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
+                            <th>ID</th>
+                            <th>Nombre Codigo</th>
+                            <th>Descripcion</th>
+                            <th>Tipo</th>
+                            <th>Foto</th>
+                            <th>Estatus</th>
                         </tr>
                     </thead>
-                    <tbody id="tblUsuarios">
-                        <!-- Filas de usuarios generadas dinámicamente -->
+                    <tbody>
+                        <tr>
+                            <td>C1</td>
+                            <td>Agua de Jamaica y Torta Ahogada</td>
+                            <td>Agua fresca saborizada con flor de jamaica acompañada con una torta en ahogada</td>
+                            <td>Combo simple</td>
+                            <td></td>
+                            <td>Activo</td>
+                            <td>
+                                <button class="btn btn-edit btn-sm" data-toggle="modal" data-target="#editUserModal">Editar</button>
+                                <button class="btn btn-delete btn-sm" onclick="confirm('¿Estás seguro de que deseas eliminar este usuario?')">Eliminar</button>
+                            </td>
+                        </tr>
+                        <!-- Más filas de usuarios aquí -->
                     </tbody>
                 </table>
             </div>
@@ -60,33 +67,40 @@
 
     <!-- Modal para agregar usuario -->
     <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+                
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addUserModalLabel">Agregar Usuario</h5>
+                    <h5 class="modal-title" id="addUserModalLabel">Agregar Combo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formAddUser">
+                    <form>
                         <div class="form-group">
-                            <label for="addName">Nombre:</label>
-                            <input type="text" class="form-control" id="addName" name="name">
+                            <label for="addProducto">Nombre:</label>
+                            <input type="text" class="form-control" id="addProducto" name="producto">
                         </div>
                         <div class="form-group">
-                            <label for="addLastname">Apellido:</label>
-                            <input type="text" class="form-control" id="addLastname" name="lastname">
+                            <label for="addDescripcion">Descripcion:</label>
+                            <input type="text" class="form-control" id="addDescripcion" name="Descripcion">
                         </div>
                         <div class="form-group">
-                            <label for="addEmail">Email:</label>
-                            <input type="email" class="form-control" id="addEmail" name="email">
+                            <label for="addTipo">Tipo: </label>
+                            <input type="email" class="form-control" id="addTipo" name="tipo">
                         </div>
                         <div class="form-group">
-                            <label for="addPhone">Teléfono:</label>
-                            <input type="tel" class="form-control" id="addPhone" name="phone">
+                            <label for="addTipo">Foto: </label>
+                            <input type="email" class="form-control" id="addFoto" name="Foto">
                         </div>
-                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="agregarUsuario()">Agregar Usuario</button>
+           
+                        <div class="form-group">
+                            <label for="addEstatus">Estatus:</label>
+                            <input type="tel" class="form-control" id="addEstatus" name="Estatus">
+                        </div>
+                        <button type="submit" class="btn" style="background-color: #e55934; color: #fff;">Agregar</button>
                     </form>
                 </div>
             </div>
@@ -98,86 +112,68 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editUserModalLabel">Editar Usuario</h5>
+                    <h5 class="modal-title" id="editUserModalLabel">Editar Cobmo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formEditUser">
+                     <form>
                         <div class="form-group">
-                            <label for="editName">Nombre:</label>
-                            <input type="text" class="form-control" id="editName" name="name">
+                            <label for="addProducto">Nombre:</label>
+                            <input type="text" class="form-control" id="addProducto" name="producto">
                         </div>
                         <div class="form-group">
-                            <label for="editLastname">Apellido:</label>
-                            <input type="text" class="form-control" id="editLastname" name="lastname">
+                            <label for="addDescripcion">Descripcion:</label>
+                            <input type="text" class="form-control" id="addDescripcion" name="Descripcion">
                         </div>
                         <div class="form-group">
-                            <label for="editEmail">Email:</label>
-                            <input type="email" class="form-control" id="editEmail" name="email" disabled>
+                            <label for="addTipo">Tipo: </label>
+                            <input type="email" class="form-control" id="addTipo" name="tipo">
                         </div>
                         <div class="form-group">
-                            <label for="editPhone">Teléfono:</label>
-                            <input type="tel" class="form-control" id="editPhone" name="phone">
+                            <label for="addTipo">Foto: </label>
+                            <input type="email" class="form-control" id="addFoto" name="foto">
                         </div>
-                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="modificarUsuario()">Actualizar Información</button>
+                        <div class="form-group">
+                            <label for="addEstatus">Estatus:</label>
+                            <input type="tel" class="form-control" id="addEstatus" name="Estatus">
+                        </div>
+                        <button type="submit" class="btn" style="background-color: #e55934; color: #fff;">Actualizar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal para consultar usuario -->
+    
+    
+    
     <div class="modal fade" id="conUserModal" tabindex="-1" role="dialog" aria-labelledby="conUserModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="conUserModalLabel">Consultar Usuario</h5>
+                    <h5 class="modal-title" id="conUserModalLabel">Consultar Combo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formConUser">
+                     <form>
                         <div class="form-group">
-                            <label for="conDato">Dato:</label>
-                            <input type="text" class="form-control" id="conDato" name="dato">
+                            <label for="addProducto">ID:</label>
+                            <input type="text" class="form-control" id="addProducto" name="producto">
                         </div>
                         <div class="form-group">
-                            <label for="conTipoDato">Tipo de Dato:</label>
-                            <select class="form-control" id="conTipoDato" name="tipoDato">
-                                <option value="nombre">Nombre</option>
-                                <option value="apellido">Apellido</option>
-                                <option value="email">Email</option>
-                                <option value="telefono">Teléfono</option>
-                            </select>
+                            <label for="addEstatus">Estatus:</label>
+                            <input type="tel" class="form-control" id="addEstatus" name="Estatus">
                         </div>
-                        <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="consultarUsuario()">Consultar</button>
+                        <button type="submit" class="btn" style="background-color: #e55934; color: #fff;">Consultar</button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <div style="width: 100%; overflow-x: auto;">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Apellido</th>
-                                    <th>Email</th>
-                                    <th>Teléfono</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tblConsulta">
-                                <!-- Resultados de la consulta generados dinámicamente -->
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <footer class="footer mt-auto py-3" style="background-color: #f69363; position: fixed; bottom: 0; width: 100%;">
         <div class="container text-center">
@@ -188,6 +184,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../JS/gestionUsuarios.js"></script>
 </body>
 </html>
