@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarape</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/zarape.css"/>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #f69363 !important;">
+        <a class="navbar-brand" href="#" style="color: #000;">Zarape</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#" style="color: #000;">Sobre nosotros</a></li>
+            </ul>
+        </div>
+    </nav>
+
+	<div class="modal fade" id="menu-User" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="menu-userLabel">Seleccion Tipo Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center mx-2">
+                        <a href="gestionUsuarios.html" style="text-decoration: none; color: inherit;">
+                            <img src="https://img.icons8.com/?size=100&id=23264&format=png&color=000000" alt="Registrar" width="50" height="50">
+                            <p>Gestion Clientes</p>
+                        </a>
+                    </div> 
+                    <div class="text-center mx-2">
+                        <a href="gestionEmpleados.html" style="text-decoration: none; color: inherit;">
+                            <img src="https://img.icons8.com/?size=100&id=19943&format=png&color=000000" alt="Registrar Empleado" width="50" height="50">
+                            <p>Gestion Empleados</p>
+                        </a>
+                    </div>     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Servicios -->
+    <div class="container text-center mt-5">
+        <h1>SERVICIO</h1>
+        <br><!-- comment -->
+        <br>
+        <br><!-- comment -->
+        <br>
+        <div class="row justify-content-center">
+			<div class="col-6 col-sm-4 col-md-2 icon">
+				<a href="#" style="text-decoration: none; color: inherit;" data-toggle="modal" data-target="#menu-User">
+					<img src="https://img.icons8.com/?size=100&id=23264&format=png&color=000000" alt="Registrar" width="50" height="50">
+					<p>Gestion Usuarios</p>
+				</a>
+			</div>
+
+            <div class="col-6 col-sm-4 col-md-2 icon">
+                <a href="alimento.html" style="text-decoration: none; color: inherit;"><img src="https://img.icons8.com/?size=100&id=24461&format=png&color=000000" alt="Buscar" width="50" height="50">
+                <p>Gestion Alimentos</p> </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 icon">
+                <a href="Bebidas.html" style="text-decoration: none; color: inherit;"><img src="https://img.icons8.com/?size=100&id=34978&format=png&color=000000" alt="Eliminar" width="50" height="50">
+                <p>Gestion Bebidas</p> </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 icon">
+                <a href="Combo.html" style="text-decoration: none; color: inherit;"><img src="https://img.icons8.com/?size=100&id=cdEqXThw9ZNe&format=png&color=000000" alt="Editar" width="50" height="50">
+                <p>Gestion Combo</p> </a>
+            </div>
+            <div class="col-6 col-sm-4 col-md-2 icon">
+                <a href="Sucursal.html" style="text-decoration: none; color: inherit;"><img src="https://img.icons8.com/?size=100&id=12706&format=png&color=000000" alt="Consultar" width="50" height="50">
+                <p>Gesion Sucursal</p> </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3" style="background-color: #f69363; position: absolute; bottom: 0; width: 100%;">
+        <div class="container text-center">
+            <span class="text-muted" style="color: #fff !important;">También nos importas - Escribe aquí los comentarios de tu experiencia en el restaurante</span>
+            <br>
+            <a href="#" class="text-muted" style="color: #fff !important;">Home</a>
+            <br>
+            <div class="social-icons mt-2">
+                <a href="#" class="text-muted mx-2" style="color: #fff !important;"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-muted mx-2" style="color: #fff !important;"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-muted mx-2" style="color: #fff !important;"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
