@@ -1,6 +1,6 @@
 # El Zarape
 
-El Zarape es una empresa especializada en el desarrollo de software, con un enfoque particular en soluciones para el sector de la restauración. Nuestra misión es proporcionar herramientas tecnológicas innovadoras que mejoren la eficiencia y la experiencia del cliente en negocios de comida.
+ByteCraftSystems es una empresa especializada en el desarrollo de software, con un enfoque particular en soluciones para el sector de la restauración. Nuestra misión es proporcionar herramientas tecnológicas innovadoras que mejoren la eficiencia y la experiencia del cliente en negocios de comida.
 
 ## Propuesta para el Desarrollo de Aplicación de Restaurante “El Zarape”
 
