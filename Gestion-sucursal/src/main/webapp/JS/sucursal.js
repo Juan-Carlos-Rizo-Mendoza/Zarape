@@ -37,7 +37,7 @@ document.getElementById('sucursalForm').addEventListener('submit', function(even
         foto_sucursal: formData.get('foto_sucursal') ? URL.createObjectURL(formData.get('foto_sucursal')) : '',
         url_pagina_web: formData.get('url_pagina_web'),
         horarios: formData.get('horarios'),
-        estado: formData.get('estado')
+        estado: formData.get('estado') || 'activo'
     };
 
     if (id_sucursal) {
@@ -55,9 +55,9 @@ document.getElementById('sucursalForm').addEventListener('submit', function(even
 function renderSucursales() {
     const tableBody = document.getElementById('sucursalesTable');
     tableBody.innerHTML = '';
-    sucursales.sort((a, b) => a.estado === 'baja' ? 1 : -1).forEach(sucursal => {
+    sucursales.sort((a, b) => a.estado === 'inactivo' ? 1 : -1).forEach(sucursal => {
         const row = document.createElement('tr');
-        if (sucursal.estado === 'baja') row.classList.add('inactive');
+        if (sucursal.estado === 'inactivo') row.classList.add('inactive');
         row.innerHTML = `
             <td>${sucursal.id_sucursal}</td>
             <td>${sucursal.nombre}</td>
@@ -87,7 +87,7 @@ function editSucursal(id) {
         document.getElementById('longitud').value = sucursal.gps_longitud;
         document.getElementById('url_pagina_web').value = sucursal.url_pagina_web;
         document.getElementById('horarios').value = sucursal.horarios;
-        'activo'.value = sucursal.estado;
+        document.getElementById('estado').value = sucursal.estado;
         $('#sucursalModal').modal('show');
     }
 }
@@ -95,7 +95,7 @@ function editSucursal(id) {
 function deleteSucursal(id) {
     const index = sucursales.findIndex(s => s.id_sucursal === id);
     if (index !== -1) {
-        sucursales[index].estado = 'baja';
+        sucursales[index].estado = 'inactivo';
         renderSucursales();
     }
 }
