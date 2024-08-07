@@ -6,127 +6,178 @@
     <title>Gestión de Sucursales - El Zarape</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="../CSS/sucursal.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light color_amarillo">
-    <a class="navbar-brand text-white" href="#">Administracion</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Inicio</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light color_amarillo">
+        <a class="navbar-brand text-white" href="#">Administración</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Inicio</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="color_rojo color_blanco text-center">
+        <h1>Gestión de Sucursales - El Zarape</h1>
     </div>
-</nav>
 
-<div class="color_rojo color_blanco text-center">
-    <h1>Gestión de Sucursales - El Zarape</h1>
-</div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <button id="addButton" class="btn btn-primary" data-toggle="modal" data-target="#sucursalModal" onclick="clearForm()">Añadir Sucursal</button>
+                        <button id="editButton" class="btn btn-secondary" onclick="editSucursal()" disabled>Editar</button>
+                        <button id="deleteButton" class="btn btn-danger" onclick="deleteSucursal()" disabled>Eliminar</button>
+                    </div>
+                    <!-- Filtros -->
+                    <div class="mb-4">
+                        <form id="filtersForm" class="d-flex justify-content-between">
+                            <input type="text" id="filterNombre" class="form-control" placeholder="Filtrar por Nombre">
+                            <input type="text" id="filterDireccion" class="form-control" placeholder="Filtrar por Dirección">
+                            <select id="filterEstado" class="form-control">
+                                <option value="">Filtrar por Estado</option>
+                                <option value="activo">Activo</option>
+                                <option value="inactivo">Inactivo</option>
+                            </select>
+                            <button type="button" id="applyFilters" class="btn btn-primary">Aplicar Filtros</button>
+                        </form>
+                    </div>
+                </div>
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h2>Sucursales</h2>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#sucursalModal" onclick="clearForm()">Añadir Sucursal</button>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="color_naranja">
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Dirección</th>
-                            <th>Latitud</th>
-                            <th>Longitud</th>
-                            <th>Foto</th>
-                            <th>URL</th>
-                            <th>Horarios</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="sucursalesTable">
-                        <!-- Aquí se insertarán las sucursales desde el script -->
-                    </tbody>
-                </table>
+                <!-- Botón para abrir el formulario de búsqueda -->
+                <div class="mb-4">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#searchModal">Buscar Sucursales</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="color_naranja">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Latitud</th>
+                                <th>Longitud</th>
+                                <th>Foto</th>
+                                <th>URL</th>
+                                <th>Horarios</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sucursalesTable">
+                            <!-- Aquí se insertarán las sucursales desde el script -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Modal para añadir/editar sucursal -->
-<div class="modal fade" id="sucursalModal" tabindex="-1" aria-labelledby="sucursalModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="color_amarillo" id="sucursalModalLabel">Añadir Sucursal</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="sucursalForm">
-                    <input type="hidden" id="id_sucursal" name="id_sucursal">
-                    <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="direccion">Dirección:</label>
-                        <input type="text" class="form-control" id="direccion" name="direccion" required>
-                    </div>
-                    <div id="map" style="height: 200px;"></div>
-                    <div class="form-group">
-                        <label for="latitud">Latitud:</label>
-                        <input type="text" class="form-control" id="latitud" name="latitud" required readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="longitud">Longitud:</label>
-                        <input type="text" class="form-control" id="longitud" name="longitud" required readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="foto_sucursal">Foto:</label>
-                        <input type="file" class="form-control-file" id="foto_sucursal" name="foto_sucursal">
-                    </div>
-                    <div class="form-group">
-                        <label for="url_pagina_web">URL Página Web:</label>
-                        <input type="url" class="form-control" id="url_pagina_web" name="url_pagina_web">
-                    </div>
-                    <div class="form-group">
-                        <label for="horarios">Horarios:</label>
-                        <input type="text" class="form-control" id="horarios" name="horarios" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="estado">Estado:</label>
-                        <select class="form-control" id="estado" name="estado">
-                            <option value="activo">Activo</option>
-                            <option value="inactivo">Inactivo</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </form>
+    <!-- Modal para añadir/editar sucursal -->
+    <div class="modal fade" id="sucursalModal" tabindex="-1" aria-labelledby="sucursalModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="color_amarillo" id="sucursalModalLabel">Añadir Sucursal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="sucursalForm">
+                        <input type="hidden" id="id_sucursal" name="id_sucursal">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" required>
+                        </div>
+                        <div id="map" style="height: 200px;"></div>
+                        <div class="form-group">
+                            <label for="latitud">Latitud:</label>
+                            <input type="text" class="form-control" id="latitud" name="latitud" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="longitud">Longitud:</label>
+                            <input type="text" class="form-control" id="longitud" name="longitud" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="foto_sucursal">Foto:</label>
+                            <input type="file" class="form-control-file" id="foto_sucursal" name="foto_sucursal">
+                        </div>
+                        <div class="form-group">
+                            <label for="url_pagina_web">URL Página Web:</label>
+                            <input type="url" class="form-control" id="url_pagina_web" name="url_pagina_web">
+                        </div>
+                        <div class="form-group">
+                            <label for="horarios">Horarios:</label>
+                            <input type="text" class="form-control" id="horarios" name="horarios" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado:</label>
+                            <select id="estado" class="form-control" name="estado">
+                                <option value="activo">Activo</option>
+                                <option value="inactivo">Inactivo</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer class="color_naranja text-white text-center py-3 mt-5">
-    <div class="container">
-        <p>© 2024 El Zarape - Todos los derechos reservados.</p>
+    <!-- Modal de búsqueda de sucursales -->
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Buscar Sucursales</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="searchForm">
+                        <div class="form-group">
+                            <label for="searchId">ID</label>
+                            <input type="text" class="form-control" id="searchId" placeholder="ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="searchNombre">Nombre</label>
+                            <input type="text" class="form-control" id="searchNombre" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="searchDireccion">Dirección</label>
+                            <input type="text" class="form-control" id="searchDireccion" placeholder="Dirección">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</footer>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../JS/sucursal.js"></script>
+    <footer class="color_naranja text-white text-center py-3 mt-5">
+        <div class="container">
+            <p>© 2024 El Zarape - Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../JS/sucursal.js"></script>
 </body>
 </html>

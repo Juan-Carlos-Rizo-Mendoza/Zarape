@@ -1,4 +1,23 @@
 let sucursales = [];
+let selectedSucursalId = null;
+
+async function loadSucursales() {
+    try {
+        const response = await fetch('../JSON/sucursal.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        if (Array.isArray(data.sucursales)) {
+            sucursales = data.sucursales;
+            renderTable();
+        } else {
+            throw new Error('Data.sucursales is not an array');
+        }
+    } catch (error) {
+        console.error('Failed to load sucursales:', error);
+    }
+}
 
 function initMap() {
     const map = L.map('map').setView([19.432608, -99.133209], 8);
@@ -24,95 +43,152 @@ function updateLatLong(location) {
     document.getElementById('longitud').value = location.lng;
 }
 
-document.getElementById('sucursalForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const id_sucursal = formData.get('id_sucursal');
-    const sucursal = {
-        id_sucursal: id_sucursal ? parseInt(id_sucursal) : (sucursales.length ? sucursales[sucursales.length - 1].id_sucursal + 1 : 1),
-        nombre: formData.get('nombre'),
-        direccion: formData.get('direccion'),
-        gps_latitud: parseFloat(formData.get('latitud')),
-        gps_longitud: parseFloat(formData.get('longitud')),
-        foto_sucursal: formData.get('foto_sucursal') ? URL.createObjectURL(formData.get('foto_sucursal')) : '',
-        url_pagina_web: formData.get('url_pagina_web'),
-        horarios: formData.get('horarios'),
-        estado: formData.get('estado') || 'activo'
-    };
+function clearForm() {
+    document.getElementById('sucursalForm').reset();
+    selectedSucursalId = null;
+}
 
-    if (id_sucursal) {
-        const index = sucursales.findIndex(s => s.id_sucursal === sucursal.id_sucursal);
-        sucursales[index] = sucursal;
-    } else {
-        sucursales.push(sucursal);
+function editSucursal() {
+    if (selectedSucursalId !== null) {
+        const sucursal = sucursales.find(s => s.id_sucursal === selectedSucursalId);
+        if (sucursal) {
+            document.getElementById('id_sucursal').value = sucursal.id_sucursal;
+            document.getElementById('nombre').value = sucursal.nombre;
+            document.getElementById('direccion').value = sucursal.direccion;
+            document.getElementById('latitud').value = sucursal.gps_latitud;
+            document.getElementById('longitud').value = sucursal.gps_longitud;
+            document.getElementById('url_pagina_web').value = sucursal.url_pagina_web;
+            document.getElementById('horarios').value = sucursal.horarios;
+            document.getElementById('estado').value = sucursal.estado;
+            $('#sucursalModal').modal('show');
+        }
     }
+}
 
-    renderSucursales();
-    $('#sucursalModal').modal('hide');
-    event.target.reset();
-});
+function deleteSucursal() {
+    if (selectedSucursalId !== null) {
+        sucursales = sucursales.filter(s => s.id_sucursal !== selectedSucursalId);
+        renderTable();
+        alert('Sucursal eliminada exitosamente.');
+        clearForm();
+    }
+}
 
-function renderSucursales() {
+function searchSucursales() {
+    const id = document.getElementById('searchId').value;
+    const nombre = document.getElementById('searchNombre').value.toLowerCase();
+    const direccion = document.getElementById('searchDireccion').value.toLowerCase();
+
+    const filteredSucursales = sucursales.filter(sucursal => {
+        const matchesId = id ? sucursal.id_sucursal.toString() === id : true;
+        const matchesNombre = sucursal.nombre.toLowerCase().includes(nombre);
+        const matchesDireccion = sucursal.direccion.toLowerCase().includes(direccion);
+
+        return matchesId && matchesNombre && matchesDireccion;
+    });
+
+    renderTable(filteredSucursales);
+}
+
+function applyFilters() {
+    const nombre = document.getElementById('filterNombre').value.toLowerCase();
+    const direccion = document.getElementById('filterDireccion').value.toLowerCase();
+    const estado = document.getElementById('filterEstado').value;
+
+    const filteredSucursales = sucursales.filter(sucursal => {
+        const matchesNombre = nombre ? sucursal.nombre.toLowerCase().includes(nombre) : true;
+        const matchesDireccion = direccion ? sucursal.direccion.toLowerCase().includes(direccion) : true;
+        const matchesEstado = estado ? sucursal.estado === estado : true;
+
+        return matchesNombre && matchesDireccion && matchesEstado;
+    });
+
+    renderTable(filteredSucursales);
+}
+
+function renderTable(data = sucursales) {
     const tableBody = document.getElementById('sucursalesTable');
     tableBody.innerHTML = '';
-    sucursales.sort((a, b) => a.estado === 'inactivo' ? 1 : -1).forEach(sucursal => {
+
+    data.forEach(sucursal => {
         const row = document.createElement('tr');
-        if (sucursal.estado === 'inactivo') row.classList.add('inactive');
         row.innerHTML = `
             <td>${sucursal.id_sucursal}</td>
             <td>${sucursal.nombre}</td>
             <td>${sucursal.direccion}</td>
             <td>${sucursal.gps_latitud}</td>
             <td>${sucursal.gps_longitud}</td>
-            <td><img src="${sucursal.foto_sucursal}" alt="Foto" width="50"></td>
+            <td><img src="${sucursal.foto_sucursal}" alt="${sucursal.nombre}" width="50"></td>
             <td><a href="${sucursal.url_pagina_web}" target="_blank">${sucursal.url_pagina_web}</a></td>
             <td>${sucursal.horarios}</td>
             <td>${sucursal.estado}</td>
-            <td>
-                <button class="btn btn-secondary btn-sm" onclick="editSucursal(${sucursal.id_sucursal})">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="deleteSucursal(${sucursal.id_sucursal})">Borrar</button>
-            </td>
         `;
+        row.onclick = () => selectSucursal(sucursal.id_sucursal);
         tableBody.appendChild(row);
     });
 }
 
-function editSucursal(id) {
-    const sucursal = sucursales.find(s => s.id_sucursal === id);
-    if (sucursal) {
-        document.getElementById('id_sucursal').value = sucursal.id_sucursal;
-        document.getElementById('nombre').value = sucursal.nombre;
-        document.getElementById('direccion').value = sucursal.direccion;
-        document.getElementById('latitud').value = sucursal.gps_latitud;
-        document.getElementById('longitud').value = sucursal.gps_longitud;
-        document.getElementById('url_pagina_web').value = sucursal.url_pagina_web;
-        document.getElementById('horarios').value = sucursal.horarios;
-        document.getElementById('estado').value = sucursal.estado;
-        $('#sucursalModal').modal('show');
+function selectSucursal(id) {
+    selectedSucursalId = id;
+    document.getElementById('editButton').disabled = false;
+    document.getElementById('deleteButton').disabled = false;
+}
+
+document.getElementById('sucursalForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    const idSucursal = formData.get('id_sucursal');
+    const nombre = formData.get('nombre');
+    const direccion = formData.get('direccion');
+    const latitud = parseFloat(formData.get('latitud'));
+    const longitud = parseFloat(formData.get('longitud'));
+    const fotoSucursal = URL.createObjectURL(formData.get('foto_sucursal'));
+    const urlPaginaWeb = formData.get('url_pagina_web');
+    const horarios = formData.get('horarios');
+    const estado = formData.get('estado');
+
+    if (!nombre || !direccion || isNaN(latitud) || isNaN(longitud) || !horarios) {
+        alert('Por favor, complete todos los campos requeridos.');
+        return;
     }
-}
 
-function deleteSucursal(id) {
-    const index = sucursales.findIndex(s => s.id_sucursal === id);
-    if (index !== -1) {
-        sucursales[index].estado = 'inactivo';
-        renderSucursales();
+    const newSucursal = {
+        id_sucursal: idSucursal || Date.now().toString(),
+        nombre,
+        direccion,
+        gps_latitud: latitud,
+        gps_longitud: longitud,
+        foto_sucursal: fotoSucursal,
+        url_pagina_web: urlPaginaWeb,
+        horarios,
+        estado
+    };
+
+    if (selectedSucursalId) {
+        const index = sucursales.findIndex(s => s.id_sucursal === selectedSucursalId);
+        sucursales[index] = newSucursal;
+    } else {
+        sucursales.push(newSucursal);
     }
-}
 
-function loadSucursales() {
-    fetch('../JSON/sucursal.json')
-        .then(response => response.json())
-        .then(data => {
-            sucursales = data.sucursales;
-            renderSucursales();
-        });
-}
+    renderTable();
+    $('#sucursalModal').modal('hide');
+    clearForm();
+    alert('Sucursal guardada exitosamente.');
+});
 
-function clearForm() {
-    document.getElementById('sucursalForm').reset();
-    document.getElementById('id_sucursal').value = '';
-}
+document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    searchSucursales();
+    $('#searchModal').modal('hide');
+});
 
-loadSucursales();
-initMap();
+document.getElementById('applyFilters').addEventListener('click', function() {
+    applyFilters();
+});
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    loadSucursales();
+    initMap();
+});
