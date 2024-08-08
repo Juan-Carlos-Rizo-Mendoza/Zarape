@@ -108,3 +108,9 @@ body {
     opacity: 0.5;
 }
 
+/* Agrega este CSS a tu archivo de estilos */
+.inactivo {
+    background-color: #00000021; /* Un tono de gris claro para las filas inactivas */
+    color: #000000; /* Un color de texto más tenue */
+}
+

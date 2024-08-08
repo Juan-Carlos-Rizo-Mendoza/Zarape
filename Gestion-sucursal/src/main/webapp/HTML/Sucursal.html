@@ -10,39 +10,35 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light color_amarillo">
-        <a class="navbar-brand text-white" href="#">Administración</a>
+    <nav class="navbar navbar-expand-lg navbar-light color_naranja">
+        <a class="navbar-brand" href="#">Zarape</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Inicio</a>
-                </li>
+                <li class="nav-item"><a href="Inicio.html" class="nav-link">Inicio</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="color_rojo color_blanco text-center">
-        <h1>Gestión de Sucursales - El Zarape</h1>
+    <!-- Admin Bar -->
+    <div class="admin-bar text-center">
+        <span>Administración</span>
     </div>
 
-    <div class="container mt-5">
+
+    <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div>
                         <button id="addButton" class="btn btn-primary" data-toggle="modal" data-target="#sucursalModal" onclick="clearForm()">Añadir Sucursal</button>
                         <button id="editButton" class="btn btn-secondary" onclick="editSucursal()" disabled>Editar</button>
-                        <button id="deleteButton" class="btn btn-danger" onclick="deleteSucursal()" disabled>Eliminar</button>
+                        <button id="deleteButton" class="btn btn-danger" onclick="setSucursalInactive()" disabled>Eliminar</button>
                     </div>
-                    <!-- Filtros -->
                     <div class="mb-4">
                         <form id="filtersForm" class="d-flex justify-content-between">
-                            <input type="text" id="filterNombre" class="form-control" placeholder="Filtrar por Nombre">
-                            <input type="text" id="filterDireccion" class="form-control" placeholder="Filtrar por Dirección">
                             <select id="filterEstado" class="form-control">
                                 <option value="">Filtrar por Estado</option>
                                 <option value="activo">Activo</option>
@@ -53,7 +49,6 @@
                     </div>
                 </div>
 
-                <!-- Botón para abrir el formulario de búsqueda -->
                 <div class="mb-4">
                     <button class="btn btn-primary" data-toggle="modal" data-target="#searchModal">Buscar Sucursales</button>
                 </div>
@@ -83,7 +78,7 @@
     </div>
 
     <!-- Modal para añadir/editar sucursal -->
-    <div class="modal fade" id="sucursalModal" tabindex="-1" aria-labelledby="sucursalModalLabel" aria-hidden="true">
+    <div class="modal fade " id="sucursalModal" tabindex="-1" aria-labelledby="sucursalModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -139,8 +134,8 @@
     </div>
 
     <!-- Modal de búsqueda de sucursales -->
-    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="searchModalLabel">Buscar Sucursales</h5>
@@ -169,12 +164,41 @@
         </div>
     </div>
 
-    <footer class="color_naranja text-white text-center py-3 mt-5">
-        <div class="container">
-            <p>© 2024 El Zarape - Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    
+    <!-- Footer -->
+    <footer class="footer-custom color_naranja">
+        <div class="container py-4">
+          <div class="row">
+            <div class="col-6 col-4">
+              <h3>Section</h3><br>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="../HTML/menu.html" class="nav-link p-0"><p></p></a></li>
+              </ul>
+            </div>
+                  <div class="col-6 mb-3">
+                      <form>
+                          <h3>Tambien nos importas</h3>
+                          <p>Escibe aqui los comentarios de tu experiencia en el zarape.</p>
 
+                      </form>
+                  </div>
+              </div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-white">
+                  <p>&copy; 2024 Zarape, Inc.</p>
+                  <ul class="list-unstyled d-flex">
+                      <li class="ms-3"><a class="link-body-emphasis" href="#">
+                        <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a>
+                      </li>
+                      <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                      <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </footer>
+
+
+    <!-- Scripts de JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
