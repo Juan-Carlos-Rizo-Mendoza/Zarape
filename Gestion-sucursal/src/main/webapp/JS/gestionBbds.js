@@ -5,7 +5,7 @@ let rutaImagenes = 'img/'; // Ruta base para las imágenes
 let obj = []; // Inicializa obj como un arreglo vacío al principio
 
 // Cargar datos iniciales desde el JSON estático
-fetch("http://localhost:8080/Integradora_Usuario/JS/jsonBbds.json")
+fetch("../JS/jsonBbds.json")
   .then(response => response.json())
     .then(function(data) {
         productos = data;
