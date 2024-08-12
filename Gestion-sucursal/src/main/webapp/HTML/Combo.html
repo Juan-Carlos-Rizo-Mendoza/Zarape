@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Combos</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/zarape(1).css"/>
-    <link rel="stylesheet" href="../CSS/combo.css"/>
+    <link rel="stylesheet" href="../CSS/zarape.css"/>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light color_naranja">
         <a class="navbar-brand" href="#">Zarape</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,7 +21,7 @@
     </nav>
 
     <!-- Admin Bar -->
-    <div class="admin-bar text-center">
+    <div class="admin-bar text-center p-3">
         <span>Administración</span>
     </div>
 
@@ -33,8 +31,8 @@
 
         <div class="row">
             <div class="col-md-12">
-                <button class="btn mb-3" data-toggle="modal" data-target="#addUserModal">Agregar Combo</button>
-                <button class="btn mb-3" data-toggle="modal" data-target="#conUserModal">Consultar Combo</button>
+                <button class="btn btn-primary m-3" data-toggle="modal" data-target="#addUserModal">Agregar Combo</button>
+                <button class="btn btn-primary m-3" data-toggle="modal" data-target="#conUserModal">Consultar Combo</button>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -215,11 +213,38 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3">
-        <div class="container text-center">
-            <p>© 2024 El Zarape - Todos los derechos reservados.</p>
+   <!-- Footer -->
+   <footer class="footer-custom color_naranja">
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-6 col-4">
+          <h3>Section</h3><br>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="../HTML/menu.html" class="nav-link p-0"><p></p></a></li>
+          </ul>
         </div>
-    </footer>
+              <div class="col-6 mb-3">
+                  <form>
+                      <h3>Tambien nos importas</h3>
+                      <p>Escibe aqui los comentarios de tu experiencia en el zarape.</p>
+
+                  </form>
+              </div>
+          </div>
+          <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-white">
+              <p>&copy; 2024 Zarape, Inc.</p>
+              <ul class="list-unstyled d-flex">
+                  <li class="ms-3"><a class="link-body-emphasis" href="#">
+                    <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a>
+                  </li>
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                  <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

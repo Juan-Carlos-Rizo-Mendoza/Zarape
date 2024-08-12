@@ -6,7 +6,7 @@ let usuarios = [];
 let usuarioSeleccionadoIndex = -1;
 
 // Cargar datos desde el JSON
-fetch("../JS/datosClientes.json")
+fetch("../JSON/datosClientes.json")
     .then(response => response.json())
     .then(jsondata => {
         usuarios = jsondata;

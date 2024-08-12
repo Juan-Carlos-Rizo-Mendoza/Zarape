@@ -6,7 +6,7 @@ let empleados = [];
 let empleadoSeleccionadoIndex = -1;
 
 // Cargar datos desde el JSON
-fetch("../JS/datosEmpleados.json")
+fetch("../JSON/datosEmpleados.json")
     .then(response => response.json())
     .then(jsondata => {
         empleados = jsondata;

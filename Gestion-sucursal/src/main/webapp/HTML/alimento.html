@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gestión de Productos</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../CSS/zarape(1).css">
-    </head >
-    <body>
-        <!-- Navbar -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #f69363 !important;">
-    <a class="navbar-brand" href="#" style="color: #fff; font-family: 'Arial Black', sans-serif; font-weight: bold;">Zarape</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="menu.html" class="nav-link" style="color: #fff;">Inicio</a></li>
-        </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/zarape.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light color_naranja">
+        <a class="navbar-brand" href="#">Zarape</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="menu.html" class="nav-link">Inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Admin Bar -->
+    <div class="admin-bar text-center p-3">
+        <span>Administración</span>
     </div>
-</nav>
-        <!-- Admin Bar -->
-        <div class="admin-bar text-center mt-5" style="background-color: #ed7d31; height: 50px; display: flex; align-items: center; justify-content: center;">
-    <span style="color: #fff; font-size: 1.5rem;">Administración</span>
-</div>
 
- <!-- Contenido principal -->
-<div class="container my-5 mt-5">
-    <h2 class="text-center" style="color: #f69363;">Gestión de Alimentos</h2>
 
-    <!-- Formulario y lista de productos -->
-    <div class="row">
-        <div class="col-md-12">
-            <!-- Botones de acción -->
-            <div class="mb-3">
-                <button class="btn mb-3" style="background-color: #f69363; color: #fff;" data-toggle="modal" data-target="#addUserModal">Agregar Alimento</button>
-            </div>
+    <!-- Contenido principal -->
+    <div class="container my-5 mt-5">
+        <h2 class="text-center" style="color: #f69363;">Gestión de Alimentos</h2>
+
+        <!-- Botones de acción -->
+        <div class="mb-3">
+            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addUserModal">Agregar Alimento</button>
+        </div>
+
         <!-- Tabla de productos -->
-        <div>
-    <table class="table table-bordered" style="border: 2px solid #f69363;">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre Platillo</th>
-                <th>Descripción</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-                <th>Foto</th>
-                <th>Estatus</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="tablaProductos">
-            <!-- Aquí se insertarán los productos dinámicamente -->
-        </tbody>
-    </table>
-</div>
-
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Platillo</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Foto</th>
+                    <th>Estatus</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaProductos">
+                <!-- Aquí se insertarán los productos dinámicamente -->
+            </tbody>
+        </table>
 
         <!-- Modal para agregar producto -->
         <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
@@ -90,7 +86,7 @@
                                 <label for="addFoto">Foto:</label>
                                 <input type="file" class="form-control" id="addFoto" name="foto" accept=".jpg, .jpeg, .png" onchange="desplegarImagen(this);">
                             </div>
-                            <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="agregarProducto();">Agregar</button>
+                            <button type="button" class="btn btn-primary" onclick="agregarProducto();">Agregar</button>
                         </form>
                     </div>
                 </div>
@@ -129,26 +125,52 @@
                                 <label for="editFoto">Foto:</label>
                                 <input type="file" class="form-control" id="editFoto" name="foto" accept=".jpg, .jpeg, .png" onchange="desplegarImagen(this);">
                             </div>
-                            <button type="button" class="btn" style="background-color: #e55934; color: #fff;" onclick="modificarProducto();">Actualizar</button>
+                            <button type="button" class="btn btn-primary" onclick="modificarProducto();">Actualizar</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Footer -->
-       <footer class="footer mt-auto py-3 fixed-bottom" style="background-color: #f69363; width: 100%;">
-    <div class="container text-center">
-        <p style="color: #fff;">© 2024 El Zarape - Todos los derechos reservados.</p>
     </div>
-</footer>
 
-        <!-- JavaScript -->
-        <script src="../JS/gestionAlm.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    </body>
+    <!-- Footer -->
+    <footer class="footer-custom color_naranja">
+        <div class="container py-4">
+          <div class="row">
+            <div class="col-6 col-4">
+              <h3>Section</h3><br>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="../HTML/menu.html" class="nav-link p-0"><p></p></a></li>
+              </ul>
+            </div>
+                  <div class="col-6 mb-3">
+                      <form>
+                          <h3>Tambien nos importas</h3>
+                          <p>Escibe aqui los comentarios de tu experiencia en el zarape.</p>
+
+                      </form>
+                  </div>
+              </div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-white">
+                  <p>&copy; 2024 Zarape, Inc.</p>
+                  <ul class="list-unstyled d-flex">
+                      <li class="ms-3"><a class="link-body-emphasis" href="#">
+                        <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a>
+                      </li>
+                      <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                      <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </footer>
+
+    <!-- JavaScript -->
+    <script src="../JS/gestionAlm.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+</body>
 </html>

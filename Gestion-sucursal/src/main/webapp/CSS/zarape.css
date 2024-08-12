@@ -1,0 +1,179 @@
+/* Estilos generales */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #FEF3E2; /* Fondo crema ligeramente amarillento */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Asegura que el contenedor principal se expanda para llenar el espacio restante */
+.container {
+    flex: 1;
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: #FFA07A;
+}
+
+.nav-link {
+    color: #000000 !important;
+}
+
+.navbar-brand button a {
+    color: #000000 !important;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: bold;
+}
+
+/* Tarjetas */
+.card {
+    background-color: #fcb29b;
+    border: none;
+}
+
+title{
+    color: #000000;
+}
+
+.card-title {
+    color: #0a0a0a;
+}
+
+/* Formularios */
+.form-control {
+    background-color: #FEF3E2 !important;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #FFA07A;
+    border: none;
+}
+
+/* Footer */
+.footer {
+    background-color: #FFA07A;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Asegura que el texto en el footer sea claro */
+.footer .text-muted {
+    color: #000000 !important;
+}
+
+.footer a {
+    color: #000000 !important;
+}
+
+/* Íconos sociales */
+.social-icons i {
+    font-size: 1.5rem;
+}
+
+/* Barras de login y administración */
+.login-bar, .admin-bar {
+    background-color: #FA812F;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Colores estándar */
+.color_naranja {
+    background-color: #FFA07A;
+
+}
+
+.color_amarillo {
+    background-color: #FA812F;
+}
+
+.color_rojo {
+    background-color: #FA4032;
+}
+
+.color_blanco {
+    color: #FEF3E2;
+}
+
+/* Mapas */
+#map {
+    height: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Filas inactivas */
+.inactive {
+    opacity: 0.5;
+}
+
+/* Filas inactivas con fondo específico */
+.inactivo {
+    background-color: #00000021; /* Un tono de gris claro para las filas inactivas */
+    color: #000000; /* Un color de texto más tenue */
+}
+
+/* Botones personalizados */
+.btn-edit {
+    border: none;
+}
+
+.btn-delete {
+    border: none;
+}
+
+/* Bordes de tablas */
+.table-bordered {
+    border: 2px solid #FFA07A;
+}
+
+/* Tipografías específicas */
+.font-el-zarape {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 2rem; /* Ajusta el tamaño según lo necesites */
+    color: #000000; /* Color personalizable */
+}
+
+.font-menus {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 1.5rem;
+    color: #000000;
+}
+
+.font-platillos {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 2rem;
+    color: #000000;
+}
+
+/* Contenedores y estilos generales */
+.typography-box {
+    padding: 10px;
+    border: 2px solid #FFA07A; /* Utilizando color naranja como borde */
+    background-color: #FEF3E2; /* Fondo crema */
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #FA812F; /* Amarillo según el estándar */
+}
+
+.text-muted {
+    color: #00000099; /* Texto gris claro */
+}
+
+h1, h2, h3,h4, h5, .subtitulo{
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 1.2rem; /* Ajusta el tamaño según lo necesites */
+    color: #000000; /* Puedes ajustar el color si lo deseas */
+}
+

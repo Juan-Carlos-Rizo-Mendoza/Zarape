@@ -6,45 +6,48 @@
     <title>Zarape</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="../CSS/zarape(1).css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/zarape.css">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #f69363 !important;">
-        <a class="navbar-brand" href="#" style="color: #000;">Zarape</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand title"  href="#">Zarape</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="../HTML/menu.html" style="color: #000;">Inicio</a></li>
+
             </ul>
         </div>
     </nav>
 
-     <!-- Login Bar -->
-    <div class="login-bar text-center" style="background-color: #ed7d31; height: 50px; display: flex; align-items: center; justify-content: center;">
-        <span style="color: #fff; font-size: 1.5rem;">Login</span>
+    <!-- Login Bar -->
+    <div class="login-bar text-center">
+        <span style="color: #FEF3E2; font-size: 1.5rem;">Login</span>
     </div>
+
     <!-- Login Form -->
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <div class="card mt-5" style="background-color: #fcb29b; border: none;">
+                <div class="card mt-5">
                     <div class="card-body">
-                        <h5 class="card-title text-center" style="color: #fff;">Iniciar Sesión</h5>
-                        <form>
+                        <h5 class="card-title text-center">Iniciar Sesión</h5>
+                        <form id="loginForm">
                             <div class="form-group">
-                                <label for="usuario" style="color: #fff;">Usuario</label>
-                                <input type="text" class="form-control" id="usuario" placeholder="Ingresa tu usuario">
+                                <label for="usuario">Usuario</label>
+                                <input type="text" class="form-control" id="usuario" placeholder="Ingresa tu usuario" required>
                             </div>
                             <div class="form-group">
-                                <label for="contrasena" style="color: #fff;">Contraseña</label>
-                                <input type="password" class="form-control" id="contrasena" placeholder="Ingresa tu contraseña">
+                                <label for="contrasena">Contraseña</label>
+                                <input type="password" class="form-control" id="contrasena" placeholder="Ingresa tu contraseña" required>
                             </div>
-                            <a href="menu.html" class="btn btn-primary btn-block" style="background-color: #e55934; border: none;">
-                                <button type="button" style="background-color: transparent; border: none; color: inherit; width: 100%;">Ingresar</button>
-                            </a>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Ingresar
+                            </button>
                         </form>
+                        <div id="loginMessage" class="text-center mt-3"></div>
                     </div>
                 </div>
             </div>
@@ -52,17 +55,40 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3" style="background-color: #f69363; position: absolute; bottom: 0; width: 100%;">
-        <div class="container text-center">
-            <span class="text-muted" style="color: #fff !important;">Tambien nos importas - Escribe aquí los comentarios de tu experiencia en el restaurante</span>
-            <br>
-            <a href="#" class="text-muted" style="color: #fff !important;">Home</a>
-            <br>
-        </div>
+    <footer class="footer mt-auto py-3">
+            <div class="container py-4">
+              <div class="row">
+                <div class="col-6 col-4">
+                  <h3>Section</h3><br>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="../HTML/menu.html" class="nav-link p-0"><p></p></a></li>
+                  </ul>
+                </div>
+                      <div class="col-6 mb-3">
+                          <form>
+                              <h3>Tambien nos importas</h3>
+                              <p>Escibe aqui los comentarios de tu experiencia en el zarape.</p>
+    
+                          </form>
+                      </div>
+                  </div>
+                  <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-white">
+                      <p>&copy; 2024 Zarape, Inc.</p>
+                      <ul class="list-unstyled d-flex">
+                          <li class="ms-3"><a class="link-body-emphasis" href="#">
+                            <svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a>
+                          </li>
+                          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../JS/index.js"></script>
 </body>
 </html>
